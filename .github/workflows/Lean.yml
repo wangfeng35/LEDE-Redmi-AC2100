@@ -1,10 +1,10 @@
 #=================================================
 # Description: Build OpenWrt using GitHub Actions
-# Lisence: Lean_x64
+# Lisence: Lean_Redmi AC2100
 # Author: kenzo
 #=================================================
 
-name: Lean_x64
+name: Lean_Redmi AC2100
 
 on:
   release:
@@ -14,14 +14,14 @@ on:
       - master
     paths:
       - '.config'
-  schedule:
-    - cron: 0 8 * * 5
+  # schedule:
+  #   - cron: 0 8 * * 5
   watch:
     types: [started]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - name: 检查
@@ -101,5 +101,5 @@ jobs:
     - name : 固件上载并完成工作
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
+        name: OpenWrt_Redmi_AC2100
         path: openwrt/bin
